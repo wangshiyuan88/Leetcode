@@ -9,16 +9,21 @@ public class CountAndSay {
 			 int index = 0;
 			 StringBuilder sb = new StringBuilder();
 			 while(index < ret.length()){
-				 if(index < ret.length()-1&&ret.charAt(index)==ret.charAt(index+1)){
-						 sb.append("2"+ret.charAt(index));
-						 index += 2;
+				 char current = ret.charAt(index);
+				 int counter = 0;
+				 while(index<ret.length()&&ret.charAt(index)==current){
+					 counter++;
+					 index++;
 				 }
-				 else
-					 sb.append("1"+ret.charAt(index++));
+				 sb.append(counter+""+current);
 			 }
 			 n--;
 			 ret = sb.toString();
 		 }
 		 return ret;
+	 }
+	 
+	 public static void main(String args[]){
+		 new CountAndSay().countAndSay(2);
 	 }
 }
