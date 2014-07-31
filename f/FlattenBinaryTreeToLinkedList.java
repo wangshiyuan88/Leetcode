@@ -1,15 +1,11 @@
 package f;
 
+import common.TreeNode;
+
 
 public class FlattenBinaryTreeToLinkedList {
 	// http://blog.csdn.net/perfect8886/article/details/20000083
-	public class TreeNode {
-		 public int val;
-		 public TreeNode left;
-		 public TreeNode right;
-		 public TreeNode(int x) { val = x; }
-	}
-	
+
 	public void flatten(TreeNode root) {
 		while(root!=null){
 			if(root.left!=null){
