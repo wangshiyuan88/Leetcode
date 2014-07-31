@@ -1,5 +1,8 @@
 package c;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CountAndSay {
 	 public String countAndSay(int n) {
 		 if(n<=0)
