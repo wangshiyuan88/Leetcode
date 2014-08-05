@@ -7,7 +7,6 @@ public class MergeTwoSortedLists {
         ListNode current = null;
         ListNode fakeHead = new ListNode(-1);
         fakeHead.next = current;
-        fakeHead.next = current;
 		while(l1!=null&&l2!=null){
 			if(l1.val>l2.val){
 				current = l1;
