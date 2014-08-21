@@ -1,5 +1,6 @@
 package w;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
@@ -12,7 +13,7 @@ public class WordLaddar {
 		 
 		 distanceQueue.add(0);
 		 wordQueue.add(start);
-		 
+		 dict.remove(start);
 		 while(!wordQueue.isEmpty()){
 			 	int currentDistance = distanceQueue.poll();
 			 	String currentWord = wordQueue.poll();
@@ -30,7 +31,7 @@ public class WordLaddar {
 			 				if(dict.contains(newWord)){
 			 					distanceQueue.add(currentDistance+1);
 			 					wordQueue.add(newWord);
-			 					dict.remove(currentWord);
+			 					dict.remove(newWord);
 			 				}
 			 			
 			 		}
@@ -38,5 +39,13 @@ public class WordLaddar {
 		 }
 		 
 		 return 0;
+	 }
+	 
+	 public static void main(String args[]){
+		 Set<String> set = new HashSet<String>();
+		 set.add("a");
+		 set.add("b");
+		 set.add("c");
+		 new WordLaddar().ladderLength("a", "c", set);
 	 }
 }

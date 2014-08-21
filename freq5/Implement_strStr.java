@@ -15,8 +15,26 @@ public class Implement_strStr {
 				if(needle.charAt(before)==needle.charAt(after)){
 					needleMap[after] = needleMap[after-1]+1;
 				}
+			}else{
+				before = 0;
 			}
+		}	
+		int needleIndex = 0;
+		int haystackIndex = 0;
+		while(needleIndex<needle.length()&&haystackIndex<haystack.length()){
+			if(needle.length()-needleIndex > haystack.length()-haystackIndex)
+				return null;
+			if(needle.charAt(needleIndex)==haystack.charAt(haystackIndex)){
+				needleIndex++;
+				haystackIndex++;
+			}else{
+				if(needleIndex != 0)
+					needleIndex = needleMap[needleIndex-1];
+				else
+					haystackIndex++;
+			}
+			
 		}
-		return null;
+		return needleIndex==needle.length()? haystack.substring(haystackIndex - needle.length()) : null;
 	}
 }

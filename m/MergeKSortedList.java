@@ -50,7 +50,7 @@ public class MergeKSortedList {
 	    }
 	
 	public static void main(String args[]){
-		List<ListNode> lists = new ArrayList<>();
+		List<ListNode> lists = new ArrayList<ListNode>();
 		lists.add(null);
 		lists.add(new ListNode(-2));
 		ListNode node = new ListNode(-3);
