@@ -1,11 +1,6 @@
-package s;
+package freq4;
 
 import common.TreeNode;
-
-
-
-
-
 
 public class SumRootToLeafNumbers {
 	public int sumNumbers(TreeNode root) {
@@ -21,22 +16,15 @@ public class SumRootToLeafNumbers {
 			return sum;
 		return sumNumbersHelper(sum, root.left)+sumNumbersHelper(sum, root.right);
 	}
-}
 
-/*public int sumNumbers(TreeNode root) {
-return sumNumbers(root, 0);
-}
-private int sumNumbers(final TreeNode node, final int prefix) {
-if (node == null) {
-    return 0;
-}
 
-int ourSum = prefix * 10 + node.val;
-
-if (node.left == null && node.right == null) {
-    return ourSum;
-} else {
-    return sumNumbers(node.left, ourSum) + sumNumbers(node.right, ourSum);            
+	public static void main(String args[]){
+		TreeNode root = new TreeNode(8);
+		root.left = new TreeNode(3);
+		root.left.right = new TreeNode(9);
+		root.left.right.left = new TreeNode(9);
+		root.left.right.right = new TreeNode(5);
+		root.right = new TreeNode(5);
+		System.out.println(new SumRootToLeafNumbers().sumNumbers(root));
+	}
 }
-}
-*/
