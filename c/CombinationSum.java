@@ -50,4 +50,8 @@ public class CombinationSum {
 			}
 		}
 	}
+	
+	public static void main(String args[]){
+		System.out.println(new CombinationSum().combinationSum2(new int[]{1,2,5}, 7));
+	}
 }

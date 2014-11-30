@@ -25,15 +25,14 @@ public class WildcardMatching {
 		boolean star = false;
 		
 		while(si<s.length()){
-
 			if(pi<p.length()&&p.charAt(pi)=='*'){
 				star = true;
 				pres = si;
-				prep = pi+1;
 				while(pi<p.length()&&p.charAt(pi)=='*')
 					pi++;
 				if(pi==p.length())
 					return true;
+				prep = pi;
 			}else{
 				if(pi<p.length()&&(p.charAt(pi)=='?'||p.charAt(pi)==s.charAt(si))){
 					pi++;
