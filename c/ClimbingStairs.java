@@ -10,6 +10,6 @@ public class ClimbingStairs {
         	temp[0] = temp[1];
         	temp[1] = current;
         }
-		return temp[2];
+		return temp[1];
     }
 }

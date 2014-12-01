@@ -5,8 +5,8 @@ public class JumpGame {
 	        if(A.length<=1)
 	            return true;
 			int current = 0;
-			while(A[current]!=0){
-				int max = current + A[current];
+			int max = current + A[current];
+			while(A[current]!=0&&max<A.length-1){
 				int nextMax = max;
 				int nextCurrent = current;
 				for (int i = current; i <= max; i++) {
@@ -16,8 +16,9 @@ public class JumpGame {
 					}
 				}
 				current = nextCurrent;
+				max = nextMax;
 			}
-			return false;
+			return max>=A.length-1;
 	    }
 	
 	public int jump(int[] A) {
