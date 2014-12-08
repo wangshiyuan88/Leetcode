@@ -20,7 +20,7 @@ public class PathSumII {
 		}
 		path.add(root.val);
 		currentSum = currentSum + root.val;
-		
+
 		if(root.left == null && root.right ==null){
 			if(currentSum == sum){
 				ret.add(new ArrayList<Integer>(path));
@@ -30,8 +30,8 @@ public class PathSumII {
 			pathSum(root.left, currentSum, sum, path, ret);
 			pathSum(root.right, currentSum, sum, path, ret);
 		}
-		if(!path.isEmpty()){
-			path.remove(path.size()-1);
-		}
+
+		path.remove(path.size()-1);
+
 	}
 }

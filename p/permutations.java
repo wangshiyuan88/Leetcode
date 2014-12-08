@@ -2,6 +2,7 @@ package p;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -60,8 +61,40 @@ public class permutations {
 			map.put(toRemove, map.get(toRemove)+1);
 		}
 	}
+	public List<List<Integer>> permuteUnique2(int[] num) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if(num.length==0)
+            return result;
+        permuteUnique(0, num, result);
+        return result;
+    }
+    
+    private void permuteUnique(int start, int[] num,  List<List<Integer>> result){
+        if(start==num.length){
+            List<Integer> list = new ArrayList<Integer>();
+            for(int n : num){
+                list.add(n);
+            }
+            result.add(list);
+        }
+        HashSet<Integer> set =  new HashSet<Integer>();
+        for(int i = start; i < num.length; i++){
+            if(i==start||(num[i]!=num[start])&&!set.contains(num[i])){
+               set.add(num[i]);
+               swap(start, i, num);
+               permuteUnique(start+1, num, result);
+               swap(start, i, num);
+            }
+        }
+            
+    }
 	
+    public void swap(int i, int j, int[] num){
+    	int temp = num[i];
+    	num[i] = num[j];
+    	num[j] = temp;
+    }
 	public static void main(String args[]){
-		new permutations().permuteUnique(new int[]{1});
+		System.out.println(new permutations().permuteUnique2(new int[]{2,1,1}));
 	}
 }

@@ -5,22 +5,31 @@ import java.util.Arrays;
 
 public class SubSetsWithDup {
 	public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] S) {
-		if(S==null)
-		  		return null;
-		  	Arrays.sort(S);
-		  	ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
-		  	ret.add(new ArrayList<Integer>());
-		  	
-		  	for(int i = 0; i < S.length; i++){
-		  		int size = ret.size();
-		  		for(int j = 0; j < size; j++){
-		  			ArrayList<Integer> current = ret.get(j);
-			  			ArrayList<Integer> temp = new ArrayList<Integer>(current);
-			  			temp.add(S[i]);
-			  			if(!ret.contains(temp))
-			  			ret.add(temp);
-		  		}
-		  	}
-			 return ret;
-		 }
+		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
+		if(S==null||S.length==0){
+			return ret;
+		}
+		Arrays.sort(S);
+		subsetsWithDup(0, S, new ArrayList<Integer>(), ret);
+		return ret;
+	}
+
+	private void subsetsWithDup(int start, int[] S, ArrayList<Integer> list, ArrayList<ArrayList<Integer>> ret){
+		if(start==S.length){
+			ret.add(new ArrayList<Integer>(list));
+			return;
+		}
+		int current = start;
+		while(current<S.length&&S[current]==S[start]){
+			current++;
+		}
+		ArrayList<Integer> original = new ArrayList<Integer>(list);
+		for(int i = 0; i < current-start+1; i++){
+			list = new ArrayList<Integer>(original);
+			for(int j = 0; j < i; j++){
+				list.add(S[start]);
+			}
+			subsetsWithDup(current, S, list, ret);
+		}
+	}
 }

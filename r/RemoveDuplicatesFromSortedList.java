@@ -16,25 +16,25 @@ public class RemoveDuplicatesFromSortedList {
 				if (prev.next == null)
 					break;
 			}
-            
-            else
+
+      else
 			    prev = prev.next;
 			after = after.next;
 		}
 
 		return head;
 	}
-	
-	
+
+
 	public ListNode deleteDuplicatesII(ListNode head) {
 		if(head == null || head.next == null)
 			return head;
-		
+
 		ListNode fakeHead = new ListNode(-1);
 		fakeHead.next = head;
 		ListNode prev = fakeHead;
 		ListNode current = fakeHead.next;
-		
+
 		while(current!=null){
 			if(current.next!=null && current.val == current.next.val){
 				current = current.next;
@@ -44,10 +44,10 @@ public class RemoveDuplicatesFromSortedList {
 				prev.next = current;
 			}
 			else{
-				prev = current; 
+				prev = current;
 				current = current.next;
 			}
-		
+
 		}
 		return fakeHead.next;
     }

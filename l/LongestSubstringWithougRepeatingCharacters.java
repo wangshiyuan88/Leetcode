@@ -17,7 +17,6 @@ public class LongestSubstringWithougRepeatingCharacters {
 			if (!charSet.contains(current)) {
 				end++;
 				charSet.add(current);
-				continue;
 			} else {
 				max = Math.max(max, end - before);
 				while (charSet.contains(current)) {
