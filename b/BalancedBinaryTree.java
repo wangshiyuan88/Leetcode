@@ -17,7 +17,7 @@ public class BalancedBinaryTree {
 	        if(leftHeight!=-1&&rightHeight!=-1){
 	            return Math.abs(leftHeight-rightHeight)>1? -1 : (leftHeight >= rightHeight)? 1+leftHeight : 1+ rightHeight;
 	        }
-	        else 
+	        else
 	            return -1;
 	    }
 }

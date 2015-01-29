@@ -17,7 +17,7 @@ public class CloneGraph {
 				Map<Integer, UndirectedGraphNode> labelNode) {
 			if(labelNode.containsKey(node.label))
 				return labelNode.get(node.label);
-			
+
 			UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
 			labelNode.put(newNode.label, newNode);
 			for(UndirectedGraphNode neighbourToClone : node.neighbors){

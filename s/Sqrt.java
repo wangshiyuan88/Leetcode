@@ -8,8 +8,8 @@ public class Sqrt {
        double last = 0;
        do{
     	  last = current;
-    	  current = (last+x/current)/2;
-       
+    	  current = (last+x/last)/2;
+
        }while(current<last);
        return (int) current;
     }

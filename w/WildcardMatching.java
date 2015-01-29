@@ -20,7 +20,7 @@ public class WildcardMatching {
 					j = pp;
 					continue;
 				}
-			}
+			}                
 			switch (p.charAt(j)) {
 			case '?': {
 				continue;

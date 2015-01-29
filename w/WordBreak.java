@@ -35,14 +35,14 @@ public class WordBreak {
 	}
 
 	public ArrayList<String> wordBreak(String s, Set<String> dict) {
-		
+
 		ArrayList<String> list = generateString(s, dict, new HashMap<String, ArrayList<String>>());
-		
+
 		return list == null? new ArrayList<String>() : list;
 	}
-	
+
 	private ArrayList<String> generateString(String s, Set<String> dict, Map<String, ArrayList<String>> map){
-		
+
 		if(s.length()==0){
 			ArrayList<String> list = new ArrayList<String>();
 			list.add("");
@@ -57,7 +57,7 @@ public class WordBreak {
 			if(dict.contains(current)){
 				ArrayList<String> afterWords = generateString(s.substring(i, s.length()), dict, map);
 				if(afterWords!=null){
-					
+
 					if(answerForS == null){
 						System.out.println(answerForS);
 						answerForS = new ArrayList<String>();
@@ -68,7 +68,7 @@ public class WordBreak {
 				}
 			}
 		}
-	
+
 		map.put(s, answerForS);
 		return answerForS;
 	}

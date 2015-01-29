@@ -2,7 +2,7 @@ package s;
 
 import java.util.ArrayList;
 
-public class SpiralMatrix {
+public class SpiralMatrix {
 
 	public ArrayList<Integer> spiralOrder(int[][] matrix) {
 
@@ -90,37 +90,34 @@ public class SpiralMatrix {
 		}
 		return ret;
 	}
-	
+
 	public int[][] generateMatrix(int n) {
-       
-		if(n==0)
-			return null;
-		
-		int[][] matrix = new int[n][n];
-		
-		int xMax = n-1;
-        int yMax = n-1;
-        int xMin = 0;
-        int yMin = 0;
-        int i = 0;
-        int j = 0;
-        int num = 1;
-        matrix[0][0] = num;
-        
-        while(true){
-        	while(j < xMax) matrix[i][++j] = ++num;
-        	if(++yMin > yMax) break; 
-        	
-        	while(i < yMax) matrix[++i][j] = ++num;
-        	if(--xMax < xMin) break;
-        	
-        	while(j > xMin) matrix[i][--j] = ++num;
-        	if(--yMax < yMin) break;
-        	
-        	while(i > yMin) matrix[--i][j] = ++num;
-        	break;
-        }
-		
-        return matrix;
+		int [][] ret = new int[n][n];
+		if(n<=0)
+		return ret;
+
+		int numToFill = 1;
+		int max = n-1;
+		int min = 0;
+		while(min<=max){
+			int x = min;
+			int y = min;
+			if(max==min){
+				ret[x][y] = numToFill;
+				return ret;
+			}
+			while(y<max)
+			ret[x][y++] = numToFill++;
+			while(x<max)
+			ret[x++][y] = numToFill++;
+			while(y>min)
+			ret[x][y--] = numToFill++;
+			while(x>max)
+			ret[x--][y] = numToFill++;
+			max--;
+			min++;
+		}
+		return ret;
 	}
+
 }
